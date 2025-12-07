@@ -1,18 +1,18 @@
 # YPrompt
 
-AI通过对话挖掘用户需求，并自动生成专业的提示词，支持系统/用户提示词优化、效果对比，版本管理和支持即时渲染的操练场
+AI 透過對話挖掘使用者需求，並自動產生專業的提示詞，支援系統/使用者提示詞最佳化、效果對比、版本管理和支援即時渲染的操練場
 
 ## 功能特性
 
-- AI引导对话挖掘用户需求后生成专业系统提示词
-- 系统/用户(支持构建对话上下文)优化、效果对比
-- 提示词版本管理与历史回滚
-- 操练场支持多种输出类型即时渲染，效果看得见
-- 双认证：本地用户名密码 、 `Linux.do OAuth`
-- 双数据库：SQLite（默认）+ MySQL（可选）
-- 响应式设计（桌面/移动端）
+- AI 引導對話挖掘使用者需求後產生專業系統提示詞
+- 系統/使用者（支援建構對話上下文）最佳化、效果對比
+- 提示詞版本管理與歷史回滾
+- 操練場支援多種輸出類型即時渲染，效果看得見
+- 雙認證：本地使用者名稱密碼、`Linux.do OAuth`
+- 雙資料庫：SQLite（預設）+ MySQL（可選）
+- 響應式設計（桌面/行動端）
 
-## 界面
+## 介面
 
 ![](imgs/1.gif)
 ![](imgs/2.gif)
@@ -30,31 +30,31 @@ AI通过对话挖掘用户需求，并自动生成专业的提示词，支持系
 ![](imgs/14.gif)
 ![](imgs/15.gif)
 
-## 系统架构
+## 系統架構
 
 ```
 YPrompt/
 ├── frontend/                  # Vue 3 + TypeScript 前端
-│   └── dist/                 # 构建产物
-├── backend/                   # Sanic Python 后端
-│   ├── apps/                 # 应用代码
-│   ├── config/               # 配置文件
-│   └── migrations/           # 数据库脚本
-├── data/                      # 数据目录（持久化）
-│   ├── yprompt.db            # SQLite数据库
-│   ├── cache/                # 缓存文件
-│   ├── logs/                 # 日志文件
-│   │   ├── backend/          # 后端日志
-│   │   └── nginx/            # Nginx日志
-│   └── ssl/                  # SSL证书（可选）
-│       ├── fullchain.pem     # 证书链
-│       └── privkey.pem       # 私钥
-├── Dockerfile                 # Docker镜像
-├── docker-compose.yml         # Docker Compose配置
-└── start.sh                   # 容器启动脚本
+│   └── dist/                 # 建置產物
+├── backend/                   # Sanic Python 後端
+│   ├── apps/                 # 應用程式碼
+│   ├── config/               # 配置檔案
+│   └── migrations/           # 資料庫腳本
+├── data/                      # 資料目錄（持久化）
+│   ├── yprompt.db            # SQLite 資料庫
+│   ├── cache/                # 快取檔案
+│   ├── logs/                 # 日誌檔案
+│   │   ├── backend/          # 後端日誌
+│   │   └── nginx/            # Nginx 日誌
+│   └── ssl/                  # SSL 憑證（可選）
+│       ├── fullchain.pem     # 憑證鏈
+│       └── privkey.pem       # 私鑰
+├── Dockerfile                 # Docker 映像檔
+├── docker-compose.yml         # Docker Compose 配置
+└── start.sh                   # 容器啟動腳本
 ```
 
-## 快速启动
+## 快速啟動
 
 ### Docker Run
 
@@ -73,7 +73,7 @@ docker run -d \
 
 ### Docker Compose
 
-创建 `docker-compose.yml`:
+建立 `docker-compose.yml`：
 
 ```yaml
 version: '3.8'
@@ -96,75 +96,75 @@ services:
       - LINUX_DO_REDIRECT_URI=https://yourdomain.com/auth/callback
 ```
 
-启动：
+啟動：
 
 ```bash
 docker-compose up -d
 ```
 
-## 环境变量说明
+## 環境變數說明
 
-### 必需参数
+### 必需參數
 
-| 变量 | 说明 | 示例 |
+| 變數 | 說明 | 範例 |
 |------|------|------|
-| `SECRET_KEY` | JWT密钥（至少32位随机字符） | `a1b2c3d4e5f6...` |
+| `SECRET_KEY` | JWT 密鑰（至少 32 位隨機字元） | `a1b2c3d4e5f6...` |
 
-### 服务器配置
+### 伺服器配置
 
-| 变量 | 默认值 | 说明 |
+| 變數 | 預設值 | 說明 |
 |------|--------|------|
-| `DOMAIN` | `localhost` | 域名或IP地址 |
+| `DOMAIN` | `localhost` | 網域名稱或 IP 位址 |
 
-### 数据库配置
+### 資料庫配置
 
-| 变量 | 默认值 | 说明 |
+| 變數 | 預設值 | 說明 |
 |------|--------|------|
-| `DB_TYPE` | `sqlite` | 数据库类型：`sqlite` 或 `mysql` |
-| `SQLITE_DB_PATH` | `../data/yprompt.db` | SQLite数据库文件路径 |
-| `DB_HOST` | `localhost` | MySQL主机地址 |
-| `DB_USER` | `root` | MySQL用户名 |
-| `DB_PASS` | - | MySQL密码 |
-| `DB_NAME` | `yprompt` | MySQL数据库名 |
-| `DB_PORT` | `3306` | MySQL端口 |
+| `DB_TYPE` | `sqlite` | 資料庫類型：`sqlite` 或 `mysql` |
+| `SQLITE_DB_PATH` | `../data/yprompt.db` | SQLite 資料庫檔案路徑 |
+| `DB_HOST` | `localhost` | MySQL 主機位址 |
+| `DB_USER` | `root` | MySQL 使用者名稱 |
+| `DB_PASS` | - | MySQL 密碼 |
+| `DB_NAME` | `yprompt` | MySQL 資料庫名稱 |
+| `DB_PORT` | `3306` | MySQL 連接埠 |
 
-### `Linux.do OAuth`配置（可选）
+### `Linux.do OAuth` 配置（可選）
 
-| 变量 | 说明 | 示例 |
+| 變數 | 說明 | 範例 |
 |------|------|------|
-| `LINUX_DO_CLIENT_ID` | 应用Client ID | `WMYxs1aE2NOdBkj1le...` |
-| `LINUX_DO_CLIENT_SECRET` | 应用Client Secret | `QGl30etmvXbLM0d...` |
-| `LINUX_DO_REDIRECT_URI` | OAuth回调地址 | `https://yourdomain.com/auth/callback` |
+| `LINUX_DO_CLIENT_ID` | 應用程式 Client ID | `WMYxs1aE2NOdBkj1le...` |
+| `LINUX_DO_CLIENT_SECRET` | 應用程式 Client Secret | `QGl30etmvXbLM0d...` |
+| `LINUX_DO_REDIRECT_URI` | OAuth 回呼位址 | `https://yourdomain.com/auth/callback` |
 
-申请地址：https://connect.linux.do/my/preferences/apps
+申請網址：https://connect.linux.do/my/preferences/apps
 
-### 本地认证配置
+### 本地認證配置
 
-| 变量 | 默认值 | 说明 |
+| 變數 | 預設值 | 說明 |
 |------|--------|------|
-| `ADMIN_USERNAME` | `admin` | 默认管理员用户名 |
-| `ADMIN_PASSWORD` | `admin123` | 默认管理员密码 |
+| `ADMIN_USERNAME` | `admin` | 預設管理員使用者名稱 |
+| `ADMIN_PASSWORD` | `admin123` | 預設管理員密碼 |
 
-### 健康检查配置
+### 健康檢查配置
 
-| 变量 | 默认值 | 说明 |
+| 變數 | 預設值 | 說明 |
 |------|--------|------|
-| `HEALTH_CHECK_INTERVAL` | `30` | 健康检查间隔（秒） |
-| `HEALTH_CHECK_TIMEOUT` | `10` | 健康检查超时（秒） |
-| `HEALTH_CHECK_RETRIES` | `3` | 健康检查重试次数 |
+| `HEALTH_CHECK_INTERVAL` | `30` | 健康檢查間隔（秒） |
+| `HEALTH_CHECK_TIMEOUT` | `10` | 健康檢查逾時（秒） |
+| `HEALTH_CHECK_RETRIES` | `3` | 健康檢查重試次數 |
 
-## HTTPS配置
+## HTTPS 配置
 
-将SSL证书放置在数据目录：
+將 SSL 憑證放置在資料目錄：
 
 ```bash
 data/ssl/
-├── fullchain.pem    # 完整证书链
-└── privkey.pem      # 私钥
+├── fullchain.pem    # 完整憑證鏈
+└── privkey.pem      # 私鑰
 ```
 
-容器启动时会自动检测并启用HTTPS。
+容器啟動時會自動偵測並啟用 HTTPS。
 
-## 许可证
+## 授權證書
 
 MIT License

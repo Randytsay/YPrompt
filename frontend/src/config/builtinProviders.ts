@@ -1,6 +1,6 @@
 import type { ProviderConfig } from '@/stores/settingsStore'
 
-// 内置提供商配置接口
+// 內置提供商配置接口
 export interface BuiltinProviderConfig {
   type: 'openai' | 'anthropic' | 'google' | 'custom'
   name: string
@@ -15,10 +15,10 @@ export interface BuiltinProviderConfig {
   enabled?: boolean
 }
 
-// 获取编译时内置的提供商配置
+// 獲取編译时內置的提供商配置
 export function getBuiltinProviders(): BuiltinProviderConfig[] {
   try {
-    // 这个值在编译时被 vite.config.ts 中的 define 替换
+    // 這個值在編译时被 vite.config.ts 中的 define 替换
     const builtinProvidersConfig = __BUILTIN_PROVIDERS__
     
     if (Array.isArray(builtinProvidersConfig)) {
@@ -30,9 +30,9 @@ export function getBuiltinProviders(): BuiltinProviderConfig[] {
   }
 }
 
-// 将内置提供商配置转换为完整的提供商配置
+// 将內置提供商配置转换為完整的提供商配置
 export function convertBuiltinToProviderConfig(builtin: BuiltinProviderConfig): ProviderConfig {
-  // 使用固定的ID生成策略，基于类型和名称的hash
+  // 使用固定的ID產生策略，基於类型和名称的hash
   const nameHash = builtin.name.replace(/\s+/g, '_').toLowerCase()
   const id = `builtin_${builtin.type}_${nameHash}`
   
@@ -43,7 +43,7 @@ export function convertBuiltinToProviderConfig(builtin: BuiltinProviderConfig): 
     google: 'https://generativelanguage.googleapis.com/v1beta'
   }
 
-  // 要求配置文件中必须明确指定models，不提供默认值
+  // 要求配置文件中必须明确指定models，不提供默認值
   const models = (builtin.models || []).map(model => ({
     ...model,
     provider: id,

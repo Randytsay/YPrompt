@@ -1,44 +1,44 @@
-# 提示词配置文件说明
+# 提示詞配置檔案說明
 
-## 文件结构
+## 檔案結構
 
 ```
 src/config/prompts/
-├── index.ts                  # 统一导出文件
-├── systemPromptRules.ts      # 系统提示词规则
-└── userGuidedRules.ts        # 用户引导规则
+├── index.ts                  # 統一匯出檔案
+├── systemPromptRules.ts      # 系統提示詞規則
+└── userGuidedRules.ts        # 使用者引導規則
 ```
 
-## 文件说明
+## 檔案說明
 
 ### index.ts
-- 统一导出所有提示词规则
-- 作为其他模块导入的入口点
+- 統一匯出所有提示詞規則
+- 作為其他模組匯入的入口點
 
 ### systemPromptRules.ts
-- 包含完整的精英提示词工程指南
-- 基于《Architecting Intelligence》的系统提示词规则
-- 导出 `SYSTEM_PROMPT_RULES` 常量
+- 包含完整的精英提示詞工程指南
+- 基於《Architecting Intelligence》的系統提示詞規則
+- 匯出 `SYSTEM_PROMPT_RULES` 常數
 
 ### userGuidedRules.ts  
-- AI需求收集助手的提示词规则
-- 用于引导用户有效描述AI自动化需求
-- 包含输入验证和对话控制逻辑
-- 导出 `USER_GUIDED_PROMPT_RULES` 常量
+- AI 需求收集助手的提示詞規則
+- 用於引導使用者有效描述 AI 自動化需求
+- 包含輸入驗證和對話控制邏輯
+- 匯出 `USER_GUIDED_PROMPT_RULES` 常數
 
-## 扩展指南
+## 擴展指南
 
-### 添加新的AI助手类型
+### 新增新的 AI 助手類型
 
-1. 在 `prompts/` 目录下创建新的规则文件，例如 `codeReviewRules.ts`
-2. 导出相应的常量，例如 `CODE_REVIEW_PROMPT_RULES`
-3. 在 `index.ts` 中添加导出
+1. 在 `prompts/` 目錄下建立新的規則檔案，例如 `codeReviewRules.ts`
+2. 匯出相應的常數，例如 `CODE_REVIEW_PROMPT_RULES`
+3. 在 `index.ts` 中新增匯出
 
-示例：
+範例：
 
 ```typescript
 // prompts/codeReviewRules.ts
-export const CODE_REVIEW_PROMPT_RULES = `你是一个专业的代码审查助手...`
+export const CODE_REVIEW_PROMPT_RULES = `你是一個專業的程式碼審查助手...`
 
 // prompts/index.ts
 import { CODE_REVIEW_PROMPT_RULES } from './codeReviewRules'
@@ -50,17 +50,17 @@ export {
 }
 ```
 
-### 修改现有规则
+### 修改現有規則
 
-1. 直接编辑对应的规则文件
-2. 保存后会自动应用到系统中
-3. 用户在设置界面中的自定义会覆盖默认值
+1. 直接編輯對應的規則檔案
+2. 儲存後會自動套用到系統中
+3. 使用者在設定介面中的自訂會覆蓋預設值
 
-## 命名规范
+## 命名規範
 
-- 所有常量使用 `UPPER_SNAKE_CASE` 命名
-- 文件名使用 `camelCase` 命名，以 `Rules.ts` 结尾
-- 导出的常量名应该以 `_RULES` 结尾，例如：
+- 所有常數使用 `UPPER_SNAKE_CASE` 命名
+- 檔案名稱使用 `camelCase` 命名，以 `Rules.ts` 結尾
+- 匯出的常數名稱應該以 `_RULES` 結尾，例如：
   - `SYSTEM_PROMPT_RULES`
   - `USER_GUIDED_PROMPT_RULES`
   - `CODE_REVIEW_PROMPT_RULES`

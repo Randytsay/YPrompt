@@ -1,5 +1,5 @@
-// 提示词规则统一导出
-// 从各个独立文件中导入并导出所有提示词规则
+// 提示詞規則統一匯出
+// 從各個獨立檔案中匯入並匯出所有提示詞規則
 
 import { SYSTEM_PROMPT_RULES } from './systemPromptRules'
 import { SYSTEM_PROMPT_SLIM_RULES } from './systemPromptSlimRules'
@@ -8,7 +8,7 @@ import { REQUIREMENT_REPORT_RULES } from './requirementReportRules'
 import { FINAL_PROMPT_GENERATION_RULES, FINAL_PROMPT_SYSTEM_MESSAGES } from './finalPromptGenerationRules'
 import { PROMPT_OPTIMIZATION_CONFIG } from './promptOptimization'
 
-// 导出所有提示词规则
+// 匯出所有提示詞規則
 export {
   SYSTEM_PROMPT_RULES,
   SYSTEM_PROMPT_SLIM_RULES,

@@ -1,5 +1,5 @@
-// 系统提示词规则 - 完整的精英提示词工程指南
-// 这是基于《Architecting Intelligence》的完整系统提示词工程规则
+// 系統提示詞規則 - 完整的精英提示詞工程指南
+// 這是基於《Architecting Intelligence》的完整系統提示詞工程規則
 
 export const SYSTEM_PROMPT_RULES = `# Architecting Intelligence: A Definitive Guide to the Art and Science of Elite Prompt Engineering
 

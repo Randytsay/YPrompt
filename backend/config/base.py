@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 class BaseConfig(object):
-    """配置基类"""
+    """配置基類"""
 
     DEBUG = True
 
-    # JWT秘钥
+    # JWT 密鑰
     SECRET_KEY = 'intramirror'
     
     # Linux.do OAuth配置
@@ -19,10 +19,10 @@ class BaseConfig(object):
     # 数据库类型: 'sqlite' 或 'mysql'
     DB_TYPE = 'sqlite'
     
-    # SQLite配置
+    # SQLite 配置
     SQLITE_DB_PATH = '../data/yprompt.db'
     
-    # MySQL配置（当DB_TYPE='mysql'时使用）
+    # MySQL 配置（當 DB_TYPE='mysql' 時使用）
     DB_HOST = 'localhost'
     DB_USER = 'root'
     DB_PASS = ''
@@ -30,26 +30,26 @@ class BaseConfig(object):
     DB_PORT = 3306
     
     # ==========================================
-    # 默认管理员账号配置（仅首次初始化时使用）
+    # 預設管理員帳號配置（僅首次初始化時使用）
     # ==========================================
     DEFAULT_ADMIN_USERNAME = 'admin'
     DEFAULT_ADMIN_PASSWORD = 'admin123'
-    DEFAULT_ADMIN_NAME = '管理员'
+    DEFAULT_ADMIN_NAME = '管理員'
 
     ACCESS_LOG = False
 
-    # 服务worker数量
+    # 服務 worker 數量
     WORKERS = 1
 
-    # 跨域相关
-    # 是否启动跨域功能
+    # 跨域相關
+    # 是否啟動跨域功能
     ENABLE_CORS = False
     CORS_SUPPORTS_CREDENTIALS = True
 
-    # redis配置
+    # redis 配置
     REDIS_CON = "redis://127.0.0.1:6379/2"
 
-    # 日志配置，兼容sanic内置log库
+    # 日誌配置，相容 sanic 內建 log 庫
     LOGGING_INFO_FILE = '../data/logs/backend/info.log'
     LOGGING_ERROR_FILE = '../data/logs/backend/error.log'
     BASE_LOGGING = {
@@ -106,7 +106,7 @@ class BaseConfig(object):
         "custom": "custom"
     }
 
-    # 没有对应的分派策略的默认owner
+    # 沒有對應的分派策略的預設 owner
     OWNER_DEFAULT = [{
         'workforceType': 4,
         'watchkeeperId': 833,

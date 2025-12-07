@@ -1,6 +1,6 @@
 /**
- * 提示词生成器模块配置
- * 便于将来封装为独立子模块或集成到更大的项目中
+ * 提示詞產生器模块配置
+ * 便於将来封装為独立子模块或集成到更大的项目中
  */
 
 export interface PromptGeneratorConfig {
@@ -10,18 +10,18 @@ export interface PromptGeneratorConfig {
   // 快速回复选项
   quickReplies: string[]
   
-  // 对话设置
+  // 對话设置
   maxConversationTurns: number
   typingDelay: number
 }
 
-// 默认配置
+// 默認配置
 export const DEFAULT_PROMPT_GENERATOR_CONFIG: PromptGeneratorConfig = {
-  welcomeMessage: "您好！我是提示词工程专家，将通过几个问题帮您构建一个高质量的AI提示词。请先告诉我：您希望用AI来解决什么问题或完成什么任务？",
+  welcomeMessage: "您好！我是提示詞工程專家，将通過几個问题帮您构建一個高品質的AI提示詞。請先告诉我：您希望用AI来解决什么问题或完成什么任务？",
   
   quickReplies: [
-    '请使用相关最佳实践的推荐建议',
-    '强制生成需求报告'
+    '請使用相关最佳实践的推荐建议',
+    '強制產生需求报告'
   ],
   
   maxConversationTurns: 5,
@@ -32,11 +32,11 @@ export const DEFAULT_PROMPT_GENERATOR_CONFIG: PromptGeneratorConfig = {
 export const MODULE_INFO = {
   name: 'PromptGenerator',
   version: '1.0.0',
-  description: '智能提示词生成器',
+  description: '智能提示詞產生器',
   author: 'YPrompt Team'
 }
 
-// 导出配置获取函数，便于将来扩展自定义配置
+// 導出配置獲取函数，便於将来扩展自定义配置
 export function getPromptGeneratorConfig(customConfig?: Partial<PromptGeneratorConfig>): PromptGeneratorConfig {
   return {
     ...DEFAULT_PROMPT_GENERATOR_CONFIG,

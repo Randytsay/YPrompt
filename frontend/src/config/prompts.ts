@@ -1,6 +1,6 @@
-// 内置系统提示词配置
-// 保持独立性，便于修改和维护
-// 提示词规则已拆分到 prompts/ 目录下的独立文件中
+// 內置系统提示詞配置
+// 保持獨立性，便於修改和維護
+// 提示詞規则已拆分到 prompts/ 目錄下的獨立文件中
 
 import { 
   SYSTEM_PROMPT_RULES,
@@ -11,7 +11,7 @@ import {
   FINAL_PROMPT_SYSTEM_MESSAGES
 } from './prompts/index'
 
-// 导入独立的提示词
+// 導入獨立的提示詞
 import { 
   THINKING_POINTS_EXTRACTION_PROMPT, 
   THINKING_POINTS_SYSTEM_MESSAGE 
@@ -41,7 +41,7 @@ export interface PromptConfig {
   systemPromptRules: string
   userGuidedPromptRules: string
   requirementReportRules: string
-  // 独立的最终提示词生成配置
+  // 獨立的最終提示詞產生配置
   thinkingPointsExtractionPrompt: string
   thinkingPointsSystemMessage: string
   systemPromptGenerationPrompt: string
@@ -50,15 +50,15 @@ export interface PromptConfig {
   optimizationAdviceSystemMessage: string
   optimizationApplicationPrompt: string
   optimizationApplicationSystemMessage: string
-  // 系统提示词质量分析配置
+  // 系统提示詞品質分析配置
   qualityAnalysisSystemPrompt: string
-  // 用户提示词优化配置
+  // 用户提示詞最佳化配置
   userPromptQualityAnalysis: string
   userPromptQuickOptimization: string
   userPromptRules: string
 }
 
-// 提示词配置管理类
+// 提示詞配置管理类
 export class PromptConfigManager {
   private static instance: PromptConfigManager
   private config: PromptConfig
@@ -70,7 +70,7 @@ export class PromptConfigManager {
       systemPromptRules: SYSTEM_PROMPT_RULES,
       userGuidedPromptRules: USER_GUIDED_PROMPT_RULES,
       requirementReportRules: REQUIREMENT_REPORT_RULES,
-      // 独立的最终提示词生成配置
+      // 獨立的最終提示詞產生配置
       thinkingPointsExtractionPrompt: THINKING_POINTS_EXTRACTION_PROMPT,
       thinkingPointsSystemMessage: THINKING_POINTS_SYSTEM_MESSAGE,
       systemPromptGenerationPrompt: SYSTEM_PROMPT_GENERATION_PROMPT,
@@ -79,9 +79,9 @@ export class PromptConfigManager {
       optimizationAdviceSystemMessage: OPTIMIZATION_ADVICE_SYSTEM_MESSAGE,
       optimizationApplicationPrompt: OPTIMIZATION_APPLICATION_PROMPT,
       optimizationApplicationSystemMessage: OPTIMIZATION_APPLICATION_SYSTEM_MESSAGE,
-      // 系统提示词质量分析配置
+      // 系统提示詞品質分析配置
       qualityAnalysisSystemPrompt: QUALITY_ANALYSIS_SYSTEM_PROMPT,
-      // 用户提示词优化配置
+      // 用户提示詞最佳化配置
       userPromptQualityAnalysis: USER_PROMPT_QUALITY_ANALYSIS,
       userPromptQuickOptimization: USER_PROMPT_OPTIMIZATION_CONFIG.quick,
       userPromptRules: USER_PROMPT_RULES
@@ -101,7 +101,7 @@ export class PromptConfigManager {
   }
 
   public getSystemPromptRules(): string {
-    // 根据设置返回完整版或精简版
+    // 根据设置返回完整版或精簡版
     if (this.useSlimRules) {
       return SYSTEM_PROMPT_SLIM_RULES
     }
@@ -134,7 +134,7 @@ export class PromptConfigManager {
     this.saveToStorage()
   }
 
-  // 独立的最终提示词生成配置获取方法
+  // 獨立的最終提示詞產生配置獲取方法
   public getThinkingPointsExtractionPrompt(): string {
     return this.config.thinkingPointsExtractionPrompt
   }
@@ -167,12 +167,12 @@ export class PromptConfigManager {
     return this.config.optimizationApplicationSystemMessage
   }
 
-  // 质量分析配置获取方法
+  // 品質分析配置獲取方法
   public getQualityAnalysisSystemPrompt(): string {
     return this.config.qualityAnalysisSystemPrompt
   }
 
-  // 用户提示词优化配置获取方法
+  // 用户提示詞最佳化配置獲取方法
   public getUserPromptQualityAnalysis(): string {
     return this.config.userPromptQualityAnalysis
   }
@@ -185,7 +185,7 @@ export class PromptConfigManager {
     return this.config.userPromptRules
   }
 
-  // 独立的最终提示词生成配置更新方法
+  // 獨立的最終提示詞產生配置更新方法
   public updateThinkingPointsExtractionPrompt(prompt: string): void {
     this.config.thinkingPointsExtractionPrompt = prompt
     this.dirtyFields.add('thinking_points_extraction_prompt')
@@ -230,14 +230,14 @@ export class PromptConfigManager {
     this.saveToStorage()
   }
 
-  // 质量分析配置更新方法
+  // 品質分析配置更新方法
   public updateQualityAnalysisSystemPrompt(prompt: string): void {
     this.config.qualityAnalysisSystemPrompt = prompt
     this.dirtyFields.add('quality_analysis_system_prompt')
     this.saveToStorage()
   }
 
-  // 用户提示词优化配置更新方法
+  // 用户提示詞最佳化配置更新方法
   public updateUserPromptQualityAnalysis(prompt: string): void {
     this.config.userPromptQualityAnalysis = prompt
     this.dirtyFields.add('user_prompt_quality_analysis')
@@ -255,7 +255,7 @@ export class PromptConfigManager {
     this.saveToStorage()
   }
 
-  // 向后兼容方法：获取合并后的最终提示词生成规则
+  // 向後相容方法：獲取合并后的最終提示詞產生規则
   public getFinalPromptGenerationRules(): typeof FINAL_PROMPT_GENERATION_RULES {
     return {
       THINKING_POINTS_EXTRACTION: this.config.thinkingPointsExtractionPrompt,
@@ -265,7 +265,7 @@ export class PromptConfigManager {
     }
   }
 
-  // 向后兼容方法：获取合并后的最终提示词系统消息
+  // 向後相容方法：獲取合并后的最終提示詞系统消息
   public getFinalPromptSystemMessages(): typeof FINAL_PROMPT_SYSTEM_MESSAGES {
     return {
       THINKING_POINTS_SYSTEM: this.config.thinkingPointsSystemMessage,
@@ -279,7 +279,7 @@ export class PromptConfigManager {
     this.config.systemPromptRules = SYSTEM_PROMPT_RULES
     this.config.userGuidedPromptRules = USER_GUIDED_PROMPT_RULES
     this.config.requirementReportRules = REQUIREMENT_REPORT_RULES
-    // 重置独立的最终提示词生成配置
+    // 重置獨立的最終提示詞產生配置
     this.config.thinkingPointsExtractionPrompt = THINKING_POINTS_EXTRACTION_PROMPT
     this.config.thinkingPointsSystemMessage = THINKING_POINTS_SYSTEM_MESSAGE
     this.config.systemPromptGenerationPrompt = SYSTEM_PROMPT_GENERATION_PROMPT
@@ -288,15 +288,15 @@ export class PromptConfigManager {
     this.config.optimizationAdviceSystemMessage = OPTIMIZATION_ADVICE_SYSTEM_MESSAGE
     this.config.optimizationApplicationPrompt = OPTIMIZATION_APPLICATION_PROMPT
     this.config.optimizationApplicationSystemMessage = OPTIMIZATION_APPLICATION_SYSTEM_MESSAGE
-    // 重置质量分析配置
+    // 重置品質分析配置
     this.config.qualityAnalysisSystemPrompt = QUALITY_ANALYSIS_SYSTEM_PROMPT
-    // 重置用户提示词优化配置
+    // 重置用户提示詞最佳化配置
     this.config.userPromptQuickOptimization = USER_PROMPT_OPTIMIZATION_CONFIG.quick
     this.config.userPromptRules = USER_PROMPT_RULES
     this.saveToStorage()
   }
 
-  // 重置系统提示词规则为默认值
+  // 重置系统提示詞規则為默認值
   public async resetSystemPromptRules(): Promise<void> {
     this.config.systemPromptRules = SYSTEM_PROMPT_RULES
     this.saveToStorage()
@@ -304,7 +304,7 @@ export class PromptConfigManager {
     await deleteUserPromptRules(['system_prompt_rules'])
   }
 
-  // 重置用户引导规则为默认值
+  // 重置用户引導規则為默認值
   public async resetUserGuidedPromptRules(): Promise<void> {
     this.config.userGuidedPromptRules = USER_GUIDED_PROMPT_RULES
     this.saveToStorage()
@@ -312,7 +312,7 @@ export class PromptConfigManager {
     await deleteUserPromptRules(['user_guided_prompt_rules'])
   }
 
-  // 重置需求报告规则为默认值
+  // 重置需求报告規则為默認值
   public async resetRequirementReportRules(): Promise<void> {
     this.config.requirementReportRules = REQUIREMENT_REPORT_RULES
     this.saveToStorage()
@@ -320,7 +320,7 @@ export class PromptConfigManager {
     await deleteUserPromptRules(['requirement_report_rules'])
   }
 
-  // 重置独立的最终提示词生成配置为默认值
+  // 重置獨立的最終提示詞產生配置為默認值
   public async resetThinkingPointsExtractionPrompt(): Promise<void> {
     this.config.thinkingPointsExtractionPrompt = THINKING_POINTS_EXTRACTION_PROMPT
     this.saveToStorage()
@@ -369,7 +369,7 @@ export class PromptConfigManager {
     this.saveToStorage()
   }
 
-  // 重置质量分析配置为默认值
+  // 重置品質分析配置為默認值
   public async resetQualityAnalysisSystemPrompt(): Promise<void> {
     this.config.qualityAnalysisSystemPrompt = QUALITY_ANALYSIS_SYSTEM_PROMPT
     this.saveToStorage()
@@ -377,7 +377,7 @@ export class PromptConfigManager {
     await deleteUserPromptRules(['quality_analysis_system_prompt'])
   }
 
-  // 重置用户提示词优化配置为默认值
+  // 重置用户提示詞最佳化配置為默認值
   public async resetUserPromptQualityAnalysis(): Promise<void> {
     this.config.userPromptQualityAnalysis = USER_PROMPT_QUALITY_ANALYSIS
     this.saveToStorage()
@@ -405,12 +405,12 @@ export class PromptConfigManager {
   }
 
   /**
-   * 保存到云端（只保存修改过的字段）
+   * 儲存到雲端（只儲存修改過的字段）
    */
   public async saveToCloud(): Promise<void> {
     try {
       if (this.dirtyFields.size === 0) {
-        console.log('[PromptConfig] 无修改，跳过保存')
+        console.log('[PromptConfig] 無修改，跳過儲存')
         return
       }
 
@@ -435,7 +435,7 @@ export class PromptConfigManager {
         'user_prompt_rules': 'userPromptRules'
       }
       
-      // 只保存修改过的字段
+      // 只儲存修改過的字段
       const cloudData: Record<string, any> = {}
       this.dirtyFields.forEach(fieldName => {
         const configKey = fieldMapping[fieldName]
@@ -444,20 +444,20 @@ export class PromptConfigManager {
         }
       })
       
-      console.log('[PromptConfig] 保存修改的字段:', Array.from(this.dirtyFields))
+      console.log('[PromptConfig] 儲存修改的字段:', Array.from(this.dirtyFields))
       await saveUserPromptRules(cloudData)
       
-      // 保存成功后，清空脏字段标记
+      // 儲存成功后，清空髒字段標記
       this.dirtyFields.clear()
       this.saveToStorage()
     } catch (error) {
-      console.error('保存到云端失败:', error)
+      console.error('儲存到雲端失敗:', error)
       throw error
     }
   }
 
   /**
-   * 从云端加载配置（浏览器会话期间只调用一次）
+   * 从雲端加載配置（浏览器会话期间只调用一次）
    */
   public async loadFromCloud(): Promise<boolean> {
     try {
@@ -467,7 +467,7 @@ export class PromptConfigManager {
         return false
       }
       
-      // 检查本次会话是否已加载过（使用sessionStorage，关闭浏览器后失效）
+      // 检查本次会话是否已加載過（使用sessionStorage，关闭浏览器后失效）
       const sessionLoaded = sessionStorage.getItem('yprompt_config_session_loaded')
       if (sessionLoaded === 'true') {
         return true
@@ -477,7 +477,7 @@ export class PromptConfigManager {
       
       if (response.code === 200 && response.data) {
         const cloudConfig = response.data
-        // 只有云端有数据的字段才覆盖默认值
+        // 只有雲端有資料的字段才覆盖默認值
         this.config = {
           systemPromptRules: cloudConfig.system_prompt_rules || SYSTEM_PROMPT_RULES,
           userGuidedPromptRules: cloudConfig.user_guided_prompt_rules || USER_GUIDED_PROMPT_RULES,
@@ -503,15 +503,15 @@ export class PromptConfigManager {
         return false
       }
     } catch (error) {
-      console.error('[PromptConfig] 从云端加载失败:', error)
-      // 失败也标记，避免反复请求
+      console.error('[PromptConfig] 从雲端加載失敗:', error)
+      // 失敗也標記，避免反复請求
       sessionStorage.setItem('yprompt_config_session_loaded', 'true')
       return false
     }
   }
   
   /**
-   * 手动刷新云端配置（用于用户点击刷新按钮）
+   * 手动刷新雲端配置（用於用户点击刷新按钮）
    */
   public async forceReloadFromCloud(): Promise<boolean> {
     sessionStorage.removeItem('yprompt_config_session_loaded')
@@ -523,7 +523,7 @@ export class PromptConfigManager {
       const { deleteUserPromptRules } = await import('@/services/apiService')
       await deleteUserPromptRules()
     } catch (error) {
-      console.error('删除云端配置失败:', error)
+      console.error('刪除雲端配置失敗:', error)
       throw error
     }
   }
@@ -533,11 +533,11 @@ export class PromptConfigManager {
       const saved = localStorage.getItem('yprompt_config')
       if (saved) {
         const parsed = JSON.parse(saved)
-        // 只加载用户自定义的内容，如果不存在则使用默认值
+        // 只加載用户自定义的內容，如果不存在则使用默認值
         this.config.systemPromptRules = parsed.systemPromptRules || SYSTEM_PROMPT_RULES
         this.config.userGuidedPromptRules = parsed.userGuidedPromptRules || USER_GUIDED_PROMPT_RULES
         this.config.requirementReportRules = parsed.requirementReportRules || REQUIREMENT_REPORT_RULES
-        // 加载独立的最终提示词生成配置，向后兼容旧版本
+        // 加載獨立的最終提示詞產生配置，向後相容舊版本
         this.config.thinkingPointsExtractionPrompt = parsed.thinkingPointsExtractionPrompt || THINKING_POINTS_EXTRACTION_PROMPT
         this.config.thinkingPointsSystemMessage = parsed.thinkingPointsSystemMessage || THINKING_POINTS_SYSTEM_MESSAGE
         this.config.systemPromptGenerationPrompt = parsed.systemPromptGenerationPrompt || SYSTEM_PROMPT_GENERATION_PROMPT
@@ -546,20 +546,20 @@ export class PromptConfigManager {
         this.config.optimizationAdviceSystemMessage = parsed.optimizationAdviceSystemMessage || OPTIMIZATION_ADVICE_SYSTEM_MESSAGE
         this.config.optimizationApplicationPrompt = parsed.optimizationApplicationPrompt || OPTIMIZATION_APPLICATION_PROMPT
         this.config.optimizationApplicationSystemMessage = parsed.optimizationApplicationSystemMessage || OPTIMIZATION_APPLICATION_SYSTEM_MESSAGE
-        // 加载质量分析配置
+        // 加載品質分析配置
         this.config.qualityAnalysisSystemPrompt = parsed.qualityAnalysisSystemPrompt || QUALITY_ANALYSIS_SYSTEM_PROMPT
-        // 加载用户提示词优化配置
+        // 加載用户提示詞最佳化配置
         this.config.userPromptQualityAnalysis = parsed.userPromptQualityAnalysis || USER_PROMPT_QUALITY_ANALYSIS
         this.config.userPromptQuickOptimization = parsed.userPromptQuickOptimization || USER_PROMPT_OPTIMIZATION_CONFIG.quick
         this.config.userPromptRules = parsed.userPromptRules || USER_PROMPT_RULES
       }
     } catch (error) {
-      // 加载失败时使用默认配置
+      // 加載失敗时使用默認配置
       this.config = {
         systemPromptRules: SYSTEM_PROMPT_RULES,
         userGuidedPromptRules: USER_GUIDED_PROMPT_RULES,
         requirementReportRules: REQUIREMENT_REPORT_RULES,
-        // 独立的最终提示词生成配置
+        // 獨立的最終提示詞產生配置
         thinkingPointsExtractionPrompt: THINKING_POINTS_EXTRACTION_PROMPT,
         thinkingPointsSystemMessage: THINKING_POINTS_SYSTEM_MESSAGE,
         systemPromptGenerationPrompt: SYSTEM_PROMPT_GENERATION_PROMPT,
@@ -568,9 +568,9 @@ export class PromptConfigManager {
         optimizationAdviceSystemMessage: OPTIMIZATION_ADVICE_SYSTEM_MESSAGE,
         optimizationApplicationPrompt: OPTIMIZATION_APPLICATION_PROMPT,
         optimizationApplicationSystemMessage: OPTIMIZATION_APPLICATION_SYSTEM_MESSAGE,
-        // 系统提示词质量分析配置
+        // 系统提示詞品質分析配置
         qualityAnalysisSystemPrompt: QUALITY_ANALYSIS_SYSTEM_PROMPT,
-        // 用户提示词优化配置
+        // 用户提示詞最佳化配置
         userPromptQualityAnalysis: USER_PROMPT_QUALITY_ANALYSIS,
         userPromptQuickOptimization: USER_PROMPT_OPTIMIZATION_CONFIG.quick,
         userPromptRules: USER_PROMPT_RULES
@@ -579,5 +579,5 @@ export class PromptConfigManager {
   }
 }
 
-// 单例实例导出
+// 单例实例導出
 export const promptConfigManager = PromptConfigManager.getInstance()

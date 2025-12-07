@@ -1,5 +1,5 @@
-// 优化建议生成提示词
-// 用于分析现有提示词并提供优化建议
+// 最佳化建議產生提示詞
+// 用於分析現有提示詞並提供最佳化建議
 
 export const OPTIMIZATION_ADVICE_PROMPT = `I am an expert prompt engineering advisor specializing in standardized Markdown prompt templates. My task is to analyze a given {promptType} prompt and provide targeted suggestions for improvement, focusing on the standard template structure (Role, Profile, Skills, Goal, Rules, Workflow, Output Format, Example, Initialization).
 
@@ -25,4 +25,4 @@ Based on the provided prompt, analyze each section of the standard template and 
 
 Optimization Suggestions:`
 
-export const OPTIMIZATION_ADVICE_SYSTEM_MESSAGE = '你是专业的AI提示词优化顾问，专门分析提示词并提供改进建议。'
+export const OPTIMIZATION_ADVICE_SYSTEM_MESSAGE = '你是專業的 AI 提示詞最佳化顧問，專門分析提示詞並提供改進建議。'

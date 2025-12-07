@@ -1,5 +1,5 @@
-// 最终提示词生成规则 - 用于生成最终高质量系统提示词的内置规则
-// 重新导出各个独立的提示词文件
+// 最終提示詞產生規則 - 用於產生最終高品質系統提示詞的內建規則
+// 重新匯出各個獨立的提示詞檔案
 
 import { THINKING_POINTS_EXTRACTION_PROMPT, THINKING_POINTS_SYSTEM_MESSAGE } from './thinkingPointsExtraction'
 import { SYSTEM_PROMPT_GENERATION_PROMPT, SYSTEM_PROMPT_SYSTEM_MESSAGE } from './systemPromptGeneration'
@@ -7,20 +7,20 @@ import { OPTIMIZATION_ADVICE_PROMPT, OPTIMIZATION_ADVICE_SYSTEM_MESSAGE } from '
 import { OPTIMIZATION_APPLICATION_PROMPT, OPTIMIZATION_APPLICATION_SYSTEM_MESSAGE } from './optimizationApplication'
 
 export const FINAL_PROMPT_GENERATION_RULES = {
-  // 系统提示词关键指令提取规则
+  // 系統提示詞關鍵指令提取規則
   THINKING_POINTS_EXTRACTION: THINKING_POINTS_EXTRACTION_PROMPT,
 
-  // 系统提示词生成规则
+  // 系統提示詞產生規則
   SYSTEM_PROMPT_GENERATION: SYSTEM_PROMPT_GENERATION_PROMPT,
 
-  // 优化建议生成规则
+  // 最佳化建議產生規則
   OPTIMIZATION_ADVICE_GENERATION: OPTIMIZATION_ADVICE_PROMPT,
 
-  // 优化应用规则
+  // 最佳化應用規則
   OPTIMIZATION_APPLICATION: OPTIMIZATION_APPLICATION_PROMPT
 }
 
-// 系统消息配置
+// 系統訊息配置
 export const FINAL_PROMPT_SYSTEM_MESSAGES = {
   THINKING_POINTS_SYSTEM: THINKING_POINTS_SYSTEM_MESSAGE,
   SYSTEM_PROMPT_SYSTEM: SYSTEM_PROMPT_SYSTEM_MESSAGE,
